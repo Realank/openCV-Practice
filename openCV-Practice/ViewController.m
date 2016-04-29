@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 
+#import "openCVUtil.h"
+
 @interface ViewController ()
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @end
@@ -18,11 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.imgView.image = [openCVUtil convertImage:[UIImage imageNamed:@"img"]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

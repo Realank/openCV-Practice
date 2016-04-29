@@ -21,7 +21,7 @@
 
 @implementation openCVUtil
 
-- (UIImage*)convertImage:(UIImage*)image {
++ (UIImage*)convertImage:(UIImage*)image {
     cv::Mat cvImage;
     UIImageToMat(image, cvImage);
     

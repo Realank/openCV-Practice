@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class UIImage;
 @interface openCVUtil : NSObject
 
-- (UIImage*)convertImage:(UIImage*)image;
++ (UIImage*)convertImage:(UIImage*)image;
 
 @end
