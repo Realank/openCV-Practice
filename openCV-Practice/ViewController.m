@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "openCVUtil.h"
+#import "OpenCVUtil.h"
 
 @interface ViewController ()
 
@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.imgView.image = [openCVUtil convertImage:[UIImage imageNamed:@"img"]];
+    self.imgView.image = [OpenCVUtil faceDetectForImage:[UIImage imageNamed:@"face"]];
 }
 
 

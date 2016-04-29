@@ -16,7 +16,9 @@
 		8CFF3F2B1CD337450037103C /* openCV_PracticeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F2A1CD337450037103C /* openCV_PracticeTests.m */; };
 		8CFF3F361CD337450037103C /* openCV_PracticeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F351CD337450037103C /* openCV_PracticeUITests.m */; };
 		8CFF3F461CD337AE0037103C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CFF3F451CD337AE0037103C /* opencv2.framework */; };
-		8CFF3F491CD339930037103C /* openCVUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F481CD339930037103C /* openCVUtil.mm */; };
+		8CFF3F491CD339930037103C /* OpenCVUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F481CD339930037103C /* OpenCVUtil.mm */; };
+		8CFF3F4C1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF3F4A1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml */; };
+		8CFF3F4D1CD358480037103C /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFF3F4B1CD358480037103C /* haarcascade_frontalface_alt.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +56,10 @@
 		8CFF3F351CD337450037103C /* openCV_PracticeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = openCV_PracticeUITests.m; sourceTree = "<group>"; };
 		8CFF3F371CD337450037103C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CFF3F451CD337AE0037103C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
-		8CFF3F471CD339930037103C /* openCVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openCVUtil.h; sourceTree = "<group>"; };
-		8CFF3F481CD339930037103C /* openCVUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = openCVUtil.mm; sourceTree = "<group>"; };
+		8CFF3F471CD339930037103C /* OpenCVUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCVUtil.h; sourceTree = "<group>"; };
+		8CFF3F481CD339930037103C /* OpenCVUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVUtil.mm; sourceTree = "<group>"; };
+		8CFF3F4A1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		8CFF3F4B1CD358480037103C /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,8 +115,8 @@
 				8CFF3F141CD337450037103C /* AppDelegate.m */,
 				8CFF3F161CD337450037103C /* ViewController.h */,
 				8CFF3F171CD337450037103C /* ViewController.m */,
-				8CFF3F471CD339930037103C /* openCVUtil.h */,
-				8CFF3F481CD339930037103C /* openCVUtil.mm */,
+				8CFF3F471CD339930037103C /* OpenCVUtil.h */,
+				8CFF3F481CD339930037103C /* OpenCVUtil.mm */,
 				8CFF3F191CD337450037103C /* Main.storyboard */,
 				8CFF3F1C1CD337450037103C /* Assets.xcassets */,
 				8CFF3F1E1CD337450037103C /* LaunchScreen.storyboard */,
@@ -125,6 +129,8 @@
 		8CFF3F101CD337450037103C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8CFF3F4A1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml */,
+				8CFF3F4B1CD358480037103C /* haarcascade_frontalface_alt.xml */,
 				8CFF3F451CD337AE0037103C /* opencv2.framework */,
 				8CFF3F111CD337450037103C /* main.m */,
 			);
@@ -252,9 +258,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFF3F4D1CD358480037103C /* haarcascade_frontalface_alt.xml in Resources */,
 				8CFF3F201CD337450037103C /* LaunchScreen.storyboard in Resources */,
 				8CFF3F1D1CD337450037103C /* Assets.xcassets in Resources */,
 				8CFF3F1B1CD337450037103C /* Main.storyboard in Resources */,
+				8CFF3F4C1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CFF3F491CD339930037103C /* openCVUtil.mm in Sources */,
+				8CFF3F491CD339930037103C /* OpenCVUtil.mm in Sources */,
 				8CFF3F181CD337450037103C /* ViewController.m in Sources */,
 				8CFF3F151CD337450037103C /* AppDelegate.m in Sources */,
 				8CFF3F121CD337450037103C /* main.m in Sources */,

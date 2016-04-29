@@ -1,5 +1,5 @@
 //
-//  openCVUtil.h
+//  OpenCVUtil.h
 //  openCV-Practice
 //
 //  Created by Realank on 16/4/29.
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 @class UIImage;
-@interface openCVUtil : NSObject
+@interface OpenCVUtil : NSObject
 
 + (UIImage*)convertImage:(UIImage*)image;
++ (UIImage*)faceDetectForImage:(UIImage*)image;
 
 @end
