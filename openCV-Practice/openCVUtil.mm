@@ -58,6 +58,8 @@
     cv::Mat gray;
     cvtColor(faceImage, gray, CV_BGR2GRAY);
     
+    NSLog(@"%d",faceImage.channels());
+    
     // 检测人脸并储存
     std::vector<cv::Rect>faces;
     faceDetector.detectMultiScale(gray, faces,1.1,2,0|CV_HAAR_SCALE_IMAGE,cv::Size(30,30));
@@ -70,8 +72,8 @@
         cv::Point br = tl + cv::Point(face.width,face.height);
         
         // 四方形的画法
-        cv::Scalar magenta = CV_RGB(0.5,0,0);//cv::Scalar(255, 0, 255);
-        cv::rectangle(faceImage, tl, br, cv::Scalar( 255, 0, 0 ), 11, 8, 0);
+        cv::Scalar magenta = cv::Scalar(255, 0, 0, 255);
+        cv::rectangle(faceImage, tl, br, magenta, 11, 8, 0);
     }
     
     return MatToUIImage(faceImage);
