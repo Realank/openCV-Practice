@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.imgView.image = [OpenCVUtil faceDetectForImage:[UIImage imageNamed:@"face"]];
+    self.imgView.image = [OpenCVUtil circleDetectForImage:[UIImage imageNamed:@"face"]];
 }
 
 

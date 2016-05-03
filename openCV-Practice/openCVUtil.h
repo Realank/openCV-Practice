@@ -12,5 +12,5 @@
 
 + (UIImage*)convertImage:(UIImage*)image;
 + (UIImage*)faceDetectForImage:(UIImage*)image;
-
++ (UIImage*)circleDetectForImage:(UIImage*)image;
 @end
