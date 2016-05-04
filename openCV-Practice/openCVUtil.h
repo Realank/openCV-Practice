@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 @class UIImage;
+
 @interface OpenCVUtil : NSObject
 
 + (UIImage*)convertImage:(UIImage*)image;
 + (UIImage*)faceDetectForImage:(UIImage*)image;
 + (UIImage*)circleDetectForImage:(UIImage*)image;
++ (NSArray*)facePointDetectForImage:(UIImage*)image;
 @end

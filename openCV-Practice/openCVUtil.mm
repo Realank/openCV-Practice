@@ -43,13 +43,66 @@
     return nil;
 }
 
++ (NSArray*)facePointDetectForImage:(UIImage*)image{
+    
+    static cv::CascadeClassifier faceDetector;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 添加xml文件
+        NSString* cascadePath = [[NSBundle mainBundle]
+                                 pathForResource:@"haarcascade_frontalface_alt2"
+                                 ofType:@"xml"];
+        faceDetector.load([cascadePath UTF8String]);
+    });
+    
+    
+    cv::Mat faceImage;
+    UIImageToMat(image, faceImage);
+    
+    // 转为灰度
+    cv::Mat gray;
+    cvtColor(faceImage, gray, CV_BGR2GRAY);
+    
+    // 检测人脸并储存
+    std::vector<cv::Rect>faces;
+    faceDetector.detectMultiScale(gray, faces,1.1,2,CV_HAAR_FIND_BIGGEST_OBJECT,cv::Size(30,30));
+    
+    NSMutableArray *array = [NSMutableArray array];
+
+    for(unsigned int i= 0;i < faces.size();i++)
+    {
+        const cv::Rect& face = faces[i];
+//        NSLog(@"image:%d,%d,\ndetect:\nstart:%d,%d,%d,%d",faceImage.rows, faceImage.cols,face.x,face.y,face.width,face.height );
+        float height = (float)faceImage.rows;
+        float width = (float)faceImage.cols;
+        CGRect rect = CGRectMake(face.x/width, face.y/height, face.width/width, face.height/height);
+        [array addObject:[NSNumber valueWithCGRect:rect]];
+        
+    }
+    
+    
+    return [array copy];
+}
+
 + (UIImage*)faceDetectForImage:(UIImage*)image {
-    cv::CascadeClassifier faceDetector;
-    // 添加xml文件
-    NSString* cascadePath = [[NSBundle mainBundle]
-                             pathForResource:@"haarcascade_frontalface_alt"
-                             ofType:@"xml"];
-    faceDetector.load([cascadePath UTF8String]);
+//    cv::CascadeClassifier faceDetector;
+//    // 添加xml文件
+//    NSString* cascadePath = [[NSBundle mainBundle]
+//                             pathForResource:@"haarcascade_frontalface_alt"
+//                             ofType:@"xml"];
+//    faceDetector.load([cascadePath UTF8String]);
+    static cv::CascadeClassifier faceDetector;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 添加xml文件
+        NSString* cascadePath = [[NSBundle mainBundle]
+                                 pathForResource:@"haarcascade_frontalface_alt"
+                                 ofType:@"xml"];
+        faceDetector.load([cascadePath UTF8String]);
+    });
+    
     
     cv::Mat faceImage;
     UIImageToMat(image, faceImage);
@@ -62,7 +115,7 @@
     
     // 检测人脸并储存
     std::vector<cv::Rect>faces;
-    faceDetector.detectMultiScale(gray, faces,1.1,2,0|CV_HAAR_SCALE_IMAGE,cv::Size(30,30));
+    faceDetector.detectMultiScale(gray, faces,1.1,2,0,cv::Size(30,30));
     
     // 在每个人脸上画一个红色四方形
     for(unsigned int i= 0;i < faces.size();i++)
@@ -70,7 +123,6 @@
         const cv::Rect& face = faces[i];
         cv::Point tl(face.x,face.y);
         cv::Point br = tl + cv::Point(face.width,face.height);
-        
         // 四方形的画法
         cv::Scalar magenta = cv::Scalar(255, 0, 0, 255);
         cv::rectangle(faceImage, tl, br, magenta, 11, 8, 0);

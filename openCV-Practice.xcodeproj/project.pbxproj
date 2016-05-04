@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C754D3E1CD89F08006135CB /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C754D3C1CD89F08006135CB /* VideoViewController.m */; };
+		8C754D3F1CD89F08006135CB /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C754D3D1CD89F08006135CB /* VideoViewController.xib */; };
+		8C75BF6C1CD9C79000E6EE44 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C75BF6B1CD9C79000E6EE44 /* haarcascade_frontalface_alt2.xml */; };
 		8CFF3F121CD337450037103C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F111CD337450037103C /* main.m */; };
 		8CFF3F151CD337450037103C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F141CD337450037103C /* AppDelegate.m */; };
 		8CFF3F181CD337450037103C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFF3F171CD337450037103C /* ViewController.m */; };
@@ -39,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C754D3B1CD89F08006135CB /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		8C754D3C1CD89F08006135CB /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		8C754D3D1CD89F08006135CB /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		8C75BF6B1CD9C79000E6EE44 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
 		8CFF3F0D1CD337450037103C /* openCV-Practice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "openCV-Practice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFF3F111CD337450037103C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8CFF3F131CD337450037103C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +122,9 @@
 				8CFF3F141CD337450037103C /* AppDelegate.m */,
 				8CFF3F161CD337450037103C /* ViewController.h */,
 				8CFF3F171CD337450037103C /* ViewController.m */,
+				8C754D3B1CD89F08006135CB /* VideoViewController.h */,
+				8C754D3C1CD89F08006135CB /* VideoViewController.m */,
+				8C754D3D1CD89F08006135CB /* VideoViewController.xib */,
 				8CFF3F471CD339930037103C /* OpenCVUtil.h */,
 				8CFF3F481CD339930037103C /* OpenCVUtil.mm */,
 				8CFF3F191CD337450037103C /* Main.storyboard */,
@@ -129,6 +139,7 @@
 		8CFF3F101CD337450037103C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C75BF6B1CD9C79000E6EE44 /* haarcascade_frontalface_alt2.xml */,
 				8CFF3F4A1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml */,
 				8CFF3F4B1CD358480037103C /* haarcascade_frontalface_alt.xml */,
 				8CFF3F451CD337AE0037103C /* opencv2.framework */,
@@ -259,7 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CFF3F4D1CD358480037103C /* haarcascade_frontalface_alt.xml in Resources */,
+				8C75BF6C1CD9C79000E6EE44 /* haarcascade_frontalface_alt2.xml in Resources */,
 				8CFF3F201CD337450037103C /* LaunchScreen.storyboard in Resources */,
+				8C754D3F1CD89F08006135CB /* VideoViewController.xib in Resources */,
 				8CFF3F1D1CD337450037103C /* Assets.xcassets in Resources */,
 				8CFF3F1B1CD337450037103C /* Main.storyboard in Resources */,
 				8CFF3F4C1CD358480037103C /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
@@ -287,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C754D3E1CD89F08006135CB /* VideoViewController.m in Sources */,
 				8CFF3F491CD339930037103C /* OpenCVUtil.mm in Sources */,
 				8CFF3F181CD337450037103C /* ViewController.m in Sources */,
 				8CFF3F151CD337450037103C /* AppDelegate.m in Sources */,

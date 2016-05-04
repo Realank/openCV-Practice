@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoViewController">
+            <connections>
+                <outlet property="resultImage" destination="F1i-ML-7rM" id="iWn-8y-b1f"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewContainer" destination="WEi-Rb-o1J" id="cMz-N1-YO7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEi-Rb-o1J">
+                    <rect key="frame" x="50" y="70" width="275" height="367"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="height" multiplier="240:253" id="0a8-q5-cRQ"/>
+                        <constraint firstAttribute="width" constant="240" id="4J0-8i-szi"/>
+                        <constraint firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="height" multiplier="3:4" id="UCM-Ld-wJR"/>
+                        <constraint firstAttribute="height" constant="253" id="sYE-t6-fDn"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="0a8-q5-cRQ"/>
+                            <exclude reference="4J0-8i-szi"/>
+                            <exclude reference="sYE-t6-fDn"/>
+                        </mask>
+                    </variation>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F1i-ML-7rM">
+                    <rect key="frame" x="124" y="445" width="126" height="168"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="126" id="RFb-UD-gYu"/>
+                        <constraint firstAttribute="width" secondItem="F1i-ML-7rM" secondAttribute="height" multiplier="9:10" constant="3" id="fUF-wu-t5i"/>
+                        <constraint firstAttribute="width" secondItem="F1i-ML-7rM" secondAttribute="height" multiplier="3:4" id="pdx-gH-nyj"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="fUF-wu-t5i"/>
+                        </mask>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WEi-Rb-o1J" secondAttribute="trailing" constant="50" id="D1e-S1-pFS"/>
+                <constraint firstItem="WEi-Rb-o1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-98" id="MQe-Iw-AB9"/>
+                <constraint firstItem="WEi-Rb-o1J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Rc3-wk-ukQ"/>
+                <constraint firstItem="WEi-Rb-o1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="bmk-5O-lGl"/>
+                <constraint firstItem="F1i-ML-7rM" firstAttribute="top" secondItem="WEi-Rb-o1J" secondAttribute="bottom" constant="8" id="hpM-r7-OPs"/>
+                <constraint firstItem="F1i-ML-7rM" firstAttribute="centerX" secondItem="WEi-Rb-o1J" secondAttribute="centerX" id="m2L-eq-bIK"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MQe-Iw-AB9"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="271.5" y="345.5"/>
+        </view>
+    </objects>
+</document>
