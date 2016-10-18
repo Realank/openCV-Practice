@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <opencv2/opencv.hpp>
 #import <opencv2/imgproc/types_c.h>
-#import <opencv2/imgcodecs/ios.h>
+#import <opencv2/highgui/ios.h>
 
 @interface OpenCVUtil (){
 

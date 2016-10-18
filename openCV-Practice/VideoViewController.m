@@ -52,8 +52,9 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     if ([_captureSession canSetSessionPreset:AVCaptureSessionPresetMedium]) {//设置分辨率
         _captureSession.sessionPreset=AVCaptureSessionPresetMedium;
     }
+
     //获得输入设备
-    AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionFront];//取得前置摄像头
+    AVCaptureDevice *captureDevice=[self getCameraDeviceWithPosition:AVCaptureDevicePositionBack];//取得前置摄像头
     if (!captureDevice) {
         NSLog(@"取得后置摄像头时出现问题.");
         return;
@@ -70,7 +71,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     _captureStillImageOutput=[[AVCaptureStillImageOutput alloc]init];
     NSDictionary *outputSettings = @{AVVideoCodecKey:AVVideoCodecJPEG};
     [_captureStillImageOutput setOutputSettings:outputSettings];//输出设置
-    
+
     //将设备输入添加到会话中
     if ([_captureSession canAddInput:_captureDeviceInput]) {
         [_captureSession addInput:_captureDeviceInput];
@@ -92,7 +93,9 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     NSDictionary* videoSettings = [NSDictionary
                                    dictionaryWithObject:value forKey:key];
     [captureOutput setVideoSettings:videoSettings];
-    [_captureSession addOutput:captureOutput];
+    if ([_captureSession canAddOutput:captureOutput]) {
+        [_captureSession addOutput:captureOutput];
+    }
     
     
     //创建视频预览层，用于实时展示摄像头状态
@@ -246,8 +249,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
  *  @return 摄像头设备
  */
 -(AVCaptureDevice *)getCameraDeviceWithPosition:(AVCaptureDevicePosition )position{
-    NSArray *cameras= [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *camera in cameras) {
+    AVCaptureDeviceDiscoverySession* discorverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position:position];
+    for (AVCaptureDevice *camera in discorverySession.devices) {
         if ([camera position]==position) {
             return camera;
         }
