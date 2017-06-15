@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +25,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="height" multiplier="240:253" id="0a8-q5-cRQ"/>
                         <constraint firstAttribute="width" constant="240" id="4J0-8i-szi"/>
-                        <constraint firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="height" multiplier="3:4" id="UCM-Ld-wJR"/>
+                        <constraint firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="height" multiplier="4:3" id="UCM-Ld-wJR"/>
                         <constraint firstAttribute="height" constant="253" id="sYE-t6-fDn"/>
                     </constraints>
                     <variation key="default">
@@ -35,11 +36,10 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F1i-ML-7rM">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F1i-ML-7rM">
                     <constraints>
-                        <constraint firstAttribute="width" constant="126" id="RFb-UD-gYu"/>
                         <constraint firstAttribute="width" secondItem="F1i-ML-7rM" secondAttribute="height" multiplier="9:10" constant="3" id="fUF-wu-t5i"/>
-                        <constraint firstAttribute="width" secondItem="F1i-ML-7rM" secondAttribute="height" multiplier="3:4" id="pdx-gH-nyj"/>
+                        <constraint firstAttribute="width" secondItem="F1i-ML-7rM" secondAttribute="height" multiplier="4:3" id="pdx-gH-nyj"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
@@ -50,12 +50,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="WEi-Rb-o1J" secondAttribute="trailing" constant="50" id="D1e-S1-pFS"/>
+                <constraint firstItem="WEi-Rb-o1J" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.9" id="79W-eV-Tlj"/>
+                <constraint firstItem="F1i-ML-7rM" firstAttribute="width" secondItem="WEi-Rb-o1J" secondAttribute="width" id="DRL-AT-PO0"/>
                 <constraint firstItem="WEi-Rb-o1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-98" id="MQe-Iw-AB9"/>
-                <constraint firstItem="WEi-Rb-o1J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="Rc3-wk-ukQ"/>
                 <constraint firstItem="WEi-Rb-o1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="bmk-5O-lGl"/>
                 <constraint firstItem="F1i-ML-7rM" firstAttribute="top" secondItem="WEi-Rb-o1J" secondAttribute="bottom" constant="8" id="hpM-r7-OPs"/>
+                <constraint firstItem="WEi-Rb-o1J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jiW-AB-Nba"/>
                 <constraint firstItem="F1i-ML-7rM" firstAttribute="centerX" secondItem="WEi-Rb-o1J" secondAttribute="centerX" id="m2L-eq-bIK"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="F1i-ML-7rM" secondAttribute="bottom" constant="10" id="yRP-uk-dB1"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">

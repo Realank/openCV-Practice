@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "VideoViewController.h"
-
+#import "LaneDetectViewController.h"
 #import "OpenCVUtil.h"
 
 @interface ViewController ()
@@ -27,9 +27,12 @@
     self.imgView.image = [OpenCVUtil faceDetectForImage:[UIImage imageNamed:@"face"]];
     NSLog(@"after");
 }
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (IBAction)faceDetect:(id)sender {
     VideoViewController *vc = [[VideoViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)laneDetect:(id)sender {
+    LaneDetectViewController *vc = [[LaneDetectViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

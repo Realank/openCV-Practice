@@ -15,4 +15,5 @@
 + (UIImage*)faceDetectForImage:(UIImage*)image;
 + (UIImage*)circleDetectForImage:(UIImage*)image;
 + (NSArray*)facePointDetectForImage:(UIImage*)image;
++ (NSArray*)laneDetectForImage:(UIImage*)image;
 @end

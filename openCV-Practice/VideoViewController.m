@@ -43,7 +43,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 //    UIBezierPath *path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, 20, 20)];
 //    _shapeLayer.path = path.CGPath;
     
-    _resultImage.contentMode = UIViewContentModeScaleToFill;
+//    _resultImage.contentMode = UIViewContentModeScaleToFill;
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -407,26 +407,39 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 //        weakSelf.resultImage.image = image;
 //    });
     
-    
-    NSArray* rectArray = [OpenCVUtil facePointDetectForImage:[self fixOrientation:image]];
-    if (rectArray.count > 0) {
-        UIBezierPath* totalPath = [UIBezierPath bezierPath];
-        for (NSNumber* rectValue in rectArray) {
-            CGRect rect = [rectValue CGRectValue];
-            rect = [self convertRectFromRect:rect toSize:_resultImage.bounds.size];
-            UIBezierPath *subpath = [UIBezierPath bezierPathWithRect:rect];
-            [totalPath appendPath:subpath];
+    if (0) {
+        // show face
+        NSArray* rectArray = [OpenCVUtil facePointDetectForImage:[self fixOrientation:image]];
+        if (rectArray.count > 0) {
+            UIBezierPath* totalPath = [UIBezierPath bezierPath];
+            for (NSNumber* rectValue in rectArray) {
+                CGRect rect = [rectValue CGRectValue];
+                rect = [self convertRectFromRect:rect toSize:_resultImage.bounds.size];
+                UIBezierPath *subpath = [UIBezierPath bezierPathWithRect:rect];
+                [totalPath appendPath:subpath];
+            }
+            
+            __weak __typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.shapeLayer.path = totalPath.CGPath;
+                weakSelf.resultImage.image = image;
+                proccessing = 0;
+            });
+        }else{
+            proccessing = 0; 
         }
-
-         __weak __typeof(self) weakSelf = self;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.shapeLayer.path = totalPath.CGPath;
-            weakSelf.resultImage.image = image;
-            proccessing = 0;
-        });
     }else{
-        proccessing = 0; 
+        //show lane
+        NSArray* images = [OpenCVUtil laneDetectForImage:[self fixOrientation:image]];
+        if (images.count) {
+            __weak __typeof(self) weakSelf = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.resultImage.image = images.lastObject;
+                proccessing = 0;
+            });
+        }
     }
+    
 
 //    __weak __typeof(self) weakSelf = self;
 //    dispatch_async(dispatch_get_main_queue(), ^{
@@ -478,6 +491,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         case UIImageOrientationRightMirrored:
             transform = CGAffineTransformTranslate(transform, aImage.size.height, 0);
             transform = CGAffineTransformScale(transform, -1, 1);
+            transform = CGAffineTransformTranslate(transform, 0, aImage.size.width);
+            transform = CGAffineTransformScale(transform, 1, -1);
             break;
         default:
             break;
